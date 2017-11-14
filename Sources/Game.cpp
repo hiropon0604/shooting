@@ -1,4 +1,4 @@
-#include "Game.hpp"
+ #include "Game.hpp"
 
 
 // TODO: 砲台の位置を画面左に、ターゲットの位置を画面右に移動させる。(A)
@@ -54,6 +54,13 @@ void Update()
 
     // 雲の描画
     DrawImage("cloud1.png", cloudPos);
+    if (cloudPos.x > -551) {
+        cloudPos.x += 50 * Time::deltaTime;
+        
+        if(cloudPos.x > 350) {
+            cloudPos = Vector2(-550, 100);
+        }
+    }
 
     // 弾の描画
     if (bulletPos.x > -999) {
@@ -63,6 +70,18 @@ void Update()
     // 砲台の描画
     FillRect(Rect(cannonPos.x-10, -140, 20, 100), Color::blue);
     DrawImage("cannon.png", cannonPos);
+    if (cannonPos.y > -60){
+        c = 1;
+    }
+    if (cannonPos.y < -160){
+        c = 0;
+    }
+    if(c == 0){
+        cannonPos.y += 20 * Time::deltaTime;
+    }
+    if (c == 1){
+        cannonPos.y -= 20 * Time::deltaTime;
+    }
 
     // ターゲットの描画
     FillRect(targetRect, Color::red);
