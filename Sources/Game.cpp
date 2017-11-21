@@ -22,8 +22,8 @@ int     score;          //!< スコア
 void Start()
 {
     cloudPos = Vector2(-320, 100);
-    cannonPos = Vector2(-80, -150);
-    targetRect = Rect(80, -140, 40, 40);
+    cannonPos = Vector2(-200, -150);
+    targetRect = Rect(200, -140, 40, 40);
     bulletPos.x = -999;
     score = 0;
    
@@ -73,7 +73,7 @@ void Update()
     FillRect(targetRect, Color::red);
     
     // スコアの描画
-    SetFont("nicoca_v1.ttf", 20.0f);
+    SetFont("nicoca_v1.ttf", 50.0f);
     DrawText(FormatString("%02d", score), Vector2(-319, 199), Color::black);
     DrawText(FormatString("%02d", score), Vector2(-320, 200), Color::white);
 }
