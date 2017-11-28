@@ -16,6 +16,7 @@ Vector2 cannonPos;      //!< 砲台の位置
 Vector2 bulletPos;      //!< 弾の位置
 Rect    targetRect;     //!< ターゲットの矩形
 int     score;          //!< スコア
+int c;
 
 
 // ゲーム開始時に呼ばれる関数です。
@@ -50,9 +51,10 @@ void Update()
             bulletPos.x = -999; // 弾を発射可能な状態に戻す
             
             PlaySound("se_maoudamashii_explosion06.mp3");
-            if (bulletPos.x >= 320){
-                bulletPos.x = -999;
-            }
+            
+        }
+        if (bulletPos.x >= 320){
+            bulletPos.x = -999;
         }
     }
 
